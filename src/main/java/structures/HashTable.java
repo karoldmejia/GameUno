@@ -1,8 +1,11 @@
-package model;
+package structures;
+
+import model.Card;
+import model.ColorCard;
+import model.TypeCard;
 
 import java.util.Iterator;
 import java.util.Random;
-import java.util.Scanner;
 
 public class HashTable {
 

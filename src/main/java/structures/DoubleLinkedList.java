@@ -1,4 +1,4 @@
-package model;
+package structures;
 
 import java.util.Iterator;
 import java.util.function.Function;
@@ -23,10 +23,6 @@ public class DoubleLinkedList<T> {
             return data;
         }
 
-        public Node<T> getPreviousNode() {
-            return previousNode;
-        }
-
         public Node<T> getNextNode() {
             return nextNode;
         }
@@ -37,10 +33,6 @@ public class DoubleLinkedList<T> {
 
         public void setNextNode(Node<T> nextNode) {
             this.nextNode = nextNode;
-        }
-
-        public void setData(T data) {
-            this.data = data;
         }
     }
 

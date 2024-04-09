@@ -1,4 +1,6 @@
-package model;
+package structures;
+
+import structures.BinaryHeap;
 
 public class PriorityQueue<T> {
 

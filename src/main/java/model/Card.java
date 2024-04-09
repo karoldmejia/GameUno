@@ -29,12 +29,15 @@ public class Card {
         return typeCard;
     }
 
-    public String getCardInfo() {
+    public String toString() {
         StringBuilder info = new StringBuilder();
         info.append("Índice: ").append(ind)
-                .append(", Color: ").append(color)
-                .append(", Number: ").append(number)
-                .append(", Type: ").append(typeCard);
+                .append(", Color: ").append(color);
+        if (typeCard.equals(TypeCard.CLASSIC)) {
+            info.append(", Number: ").append(number);
+        }
+        info.append(", Type: ").append(typeCard);
         return info.toString();
     }
+
 }

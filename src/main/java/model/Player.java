@@ -1,30 +1,28 @@
 package model;
+import structures.Queue;
+
 import java.util.Iterator;
 
 public class Player {
     private String name;
-    private Queue deckPlayer;
+    private Queue<Card> deckPlayer;
 
     public Player(String name){
         this.name=name;
-        this.deckPlayer=new Queue();
+        this.deckPlayer=new Queue<Card>();
     }
 
     public String getName() {
         return name;
     }
 
-    public Queue getDeckPlayer() {
+    public Queue<Card> getDeckPlayer() {
         return deckPlayer;
-    }
-
-    public void setDeckPlayer(Queue deckPlayer) {
-        this.deckPlayer = deckPlayer;
     }
 
     public void seeCards() {
         System.out.println("Cartas del jugador " + name + ":");
-        deckPlayer.seeCards();
+        deckPlayer.seeElements();
     }
 
     public String seeMatch(Card cardToMatch) {
@@ -32,8 +30,14 @@ public class Player {
         Iterator<Card> iterator = deckPlayer.iterator(); // Obtener un iterador para recorrer la lista
         while (iterator.hasNext()) { // Iterar mientras haya más elementos en la lista
             Card card = iterator.next(); // Obtener el siguiente elemento
-            if (card.getColor() == cardToMatch.getColor() || card.getNumber() == cardToMatch.getNumber() || card.getTypeCard() == TypeCard.WILD) {
-                matchCards.append(card.getCardInfo()).append("\n");
+            if (card.getTypeCard().equals(TypeCard.CLASSIC)) {
+                if (card.getColor() == cardToMatch.getColor() || card.getNumber() == cardToMatch.getNumber()) {
+                    matchCards.append(card.toString()).append("\n");
+                }
+            } else {
+                if (card.getColor() == cardToMatch.getColor() || card.getTypeCard() == TypeCard.WILD){
+                    matchCards.append(card.toString()).append("\n");
+                }
             }
         }
         return matchCards.toString();

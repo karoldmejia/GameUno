@@ -1,4 +1,4 @@
-package model;
+package structures;
 
 public class BinaryHeap<T> {
     private Element<T>[] heap; // Representamos el heap con un arreglo

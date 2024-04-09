@@ -9,7 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Game game = new Game();
         System.out.println("Bienvenido al juego.");
-        System.out.print("¿Cuántos jugadores van a jugar? ");
+        System.out.print("¿Cuántos jugadores van a jugar?: ");
         int numPlayers = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Por favor, ingresa sus nombres");
