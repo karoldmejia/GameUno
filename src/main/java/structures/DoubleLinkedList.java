@@ -59,6 +59,7 @@ public class DoubleLinkedList<T> {
             nodeHead.previousNode = newNode;
             nodeHead = newNode;
         }
+        nodeCounter++;
     }
 
     public void insertAtEnd(T data){ //Sin importar si es cola o stack, ambas insertan al final
@@ -84,6 +85,7 @@ public class DoubleLinkedList<T> {
         nodeHead=nodeHead.getNextNode(); //Reemplazamos la cabeza de la lista con la carta que le sigue
         if (nodeHead != null) { //Ponemos esto en caso tal de que la cabeza haya sido la única carta en la lista, para evitar intentar acceder a un valor nulo
             nodeHead.setPreviousNode(null); // Si hay más de un solo valor, es decir, la lista no queda vacía, entonces borramos la referencia de la zabeza actual a la cabeza anterior
+            nodeCounter--;
             return referenceNodeHead;
         }
         return null;
@@ -103,6 +105,7 @@ public class DoubleLinkedList<T> {
             currentNode = currentNode.getNextNode();
         }
         currentNode.setNextNode(null); // Eliminar el último nodo
+        nodeCounter--;
     }
 
     public void swapNodes(Node<T> node) {

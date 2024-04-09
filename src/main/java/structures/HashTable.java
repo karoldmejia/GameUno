@@ -86,20 +86,4 @@ public class HashTable {
         }
     }
 
-    public void showCards() {
-        ColorCard[] colors = ColorCard.values();
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Cartas en el slot de color " + colors[i] + ":");
-            DoubleLinkedList<Entry> list = cardsHashTable[i];
-            Iterator<Entry> iterator = list.iterator();
-            while (iterator.hasNext()) {
-                Entry entry = iterator.next();
-                System.out.println("Índice: "+entry.value.getInd()+", Color: " + entry.value.getColor() +
-                        ", Number: " + entry.value.getNumber() +
-                        ", Type: " + entry.value.getTypeCard());
-            }
-            System.out.println();
-        }
-    }
-
 }

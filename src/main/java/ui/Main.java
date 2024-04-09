@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import structures.PriorityQueue;
 
 import java.util.Scanner;
 

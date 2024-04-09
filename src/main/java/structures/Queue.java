@@ -44,4 +44,8 @@ public class Queue<T> {
         return list.iterator();
     }
 
+    public int size(){
+        return list.getNodeCounter();
+    }
+
 }

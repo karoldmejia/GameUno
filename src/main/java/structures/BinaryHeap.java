@@ -60,22 +60,37 @@ public class BinaryHeap<T> {
     // se coloque en la posición correcta en el heap.
 
     //Pendiente por modificación de detalles
-    public void heapify(int i){ // Este método es para hacer que el heap se mantenga su propiedad al cambiar UN nodo. Lo utilizamos más específicamente al eliminar un nodo (la raíz)
-        int parent=i; // Ahora el elemento padre es el índice que ingresamos
-        if (i<(size/2)){ // La condición dice que si el índice es menor o igual a la mitad del arreglo, es decir, que si está ubicado en la primera mitad del arreglo, puede proceder. Esto es para identificar que el índice no sea una hoja, y que por lo tanto, si tenga nodos hijos
-            int rightChild = (i*2)+1;
-            int leftChild = ((i+1)*2); // Calculamos los índices de ambos hijos
-            int minChild = ((heap[rightChild].getPriority() < heap[leftChild].getPriority()) ? rightChild : leftChild); // En caso de tener que intercambiar nodos, queremos asegurarnos de que el nodo hijo elegido sea el menor de todos, ya que si no lo es, no quedaría bien organizado ya que el padre sería mayor a uno de sus hijos
-            if (minChild < size && heap[minChild].getPriority() < heap[parent].getPriority()) {
-                parent = minChild;
-            }
-            // Utilizamos la primera condición para verificar que sí existe un hijo
-            // Si existe, si ese hijo es menor que su padre, entonces actualizamos el índice de padre al índice del hijo seleccionado (aún sin mover nada en el arreglo, solo estamos seleccionando)
-            if (heap[i].getPriority() > heap[parent].getPriority()){ // Entonces, verificamos nuevamente, y en caso de que el nodo ingresado (o sea el padre inicial) sea mayor al hijo menor anteriormente calculado, hay que intercambiar posiciones
-                Element<T> temp=heap[i];
-                heap[i]=heap[parent];
-                heap[parent]=temp; // Aquí finalmente reemplazamos en el arreglo, teniendo al hijo menor como nuevo padre, y viceversa
-                heapify(parent); // Llamamos recursivamente a heapify para asegurarnos que el nuevo padre cumpla la condición del min-heap correctamente
+    public void heapify(int i) {
+        int parent = i; // Ahora el elemento padre es el índice que ingresamos
+
+        if (i < (size / 2)) { // La condición dice que si el índice es menor o igual a la mitad del arreglo, es decir, que si está ubicado en la primera mitad del arreglo, puede proceder. Esto es para identificar que el índice no sea una hoja, y que por lo tanto, sí tenga nodos hijos
+            int rightChild = (i * 2) + 1;
+            int leftChild = (i + 1) * 2; // Calculamos los índices de ambos hijos
+
+            // Verificar si el hijo derecho existe y es válido
+            if (rightChild < size && heap[rightChild] != null) {
+                int minChild = rightChild;
+
+                // Verificar si el hijo izquierdo existe y es válido
+                if (leftChild < size && heap[leftChild] != null) {
+                    // Elegir el hijo con la menor prioridad
+                    if (heap[rightChild].getPriority() < heap[leftChild].getPriority()) {
+                        minChild = rightChild;
+                    } else {
+                        minChild = leftChild;
+                    }
+                }
+
+                // Verificar si el hijo seleccionado tiene menor prioridad que el padre
+                if (heap[minChild] != null && heap[minChild].getPriority() < heap[parent].getPriority()) {
+                    // Intercambiar el padre con el hijo de menor prioridad
+                    Element<T> temp = heap[parent];
+                    heap[parent] = heap[minChild];
+                    heap[minChild] = temp;
+
+                    // Llamar recursivamente a heapify en el hijo modificado
+                    heapify(minChild);
+                }
             }
         }
     }

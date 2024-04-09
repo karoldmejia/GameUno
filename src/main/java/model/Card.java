@@ -29,6 +29,10 @@ public class Card {
         return typeCard;
     }
 
+    public void setColor(ColorCard color) {
+        this.color = color;
+    }
+
     public String toString() {
         StringBuilder info = new StringBuilder();
         info.append("Índice: ").append(ind)

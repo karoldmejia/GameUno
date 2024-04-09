@@ -37,4 +37,8 @@ public class Stack<T> {
         list.insertAtHead(data);
     }
 
+    public int size(){
+        return list.getNodeCounter();
+    }
+
 }
