@@ -32,12 +32,14 @@ public class Queue<T> {
         list.swapNodes(newHead); // Establecer el nuevo nodo como el nodeHead
     }
 
-    public void seeElements() {
-        Iterator<T> iterator = list.iterator(); // Obtener un iterador para recorrer la lista
-        while (iterator.hasNext()) { // Iterar mientras haya más elementos en la lista
-            T item = iterator.next(); // Obtener el siguiente elemento
-            System.out.println(item.toString());
+    public String seeElements() {
+        StringBuilder elementsInfo = new StringBuilder();
+        Iterator<T> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            T item = iterator.next();
+            elementsInfo.append(item.toString()).append("\n");
         }
+        return elementsInfo.toString();
     }
 
     public Iterator<T> iterator() {

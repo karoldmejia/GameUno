@@ -104,13 +104,13 @@ public class DoubleLinkedList<T> {
         while (currentNode.getNextNode() != null && currentNode.getNextNode().getNextNode() != null) {
             currentNode = currentNode.getNextNode();
         }
-        currentNode.setNextNode(null); // Eliminar el último nodo
+        currentNode.setNextNode(null);
         nodeCounter--;
     }
 
     public void swapNodes(Node<T> node) {
         if (node == null || node.data == nodeHead.data) {
-            return; // No se puede intercambiar con sí mismo o con un nodo nulo
+            return;
         }
 
         Node<T> prevNode = node.previousNode;

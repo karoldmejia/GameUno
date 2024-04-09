@@ -35,7 +35,7 @@ public class Card {
 
     public String toString() {
         StringBuilder info = new StringBuilder();
-        info.append("Índice: ").append(ind)
+        info.append("Index: ").append(ind)
                 .append(", Color: ").append(color);
         if (typeCard.equals(TypeCard.CLASSIC)) {
             info.append(", Number: ").append(number);

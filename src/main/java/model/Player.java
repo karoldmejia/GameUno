@@ -20,10 +20,13 @@ public class Player {
         return deckPlayer;
     }
 
-    public void seeCards() {
-        System.out.println("Cartas del jugador " + name + ":");
-        deckPlayer.seeElements();
+    public String seeCards() {
+        StringBuilder cardsInfo = new StringBuilder();
+        cardsInfo.append(name).append("'s deck:\n");
+        cardsInfo.append(deckPlayer.seeElements());
+        return cardsInfo.toString();
     }
+
 
     public String seeMatch(Card cardToMatch) {
         StringBuilder matchCards = new StringBuilder();
