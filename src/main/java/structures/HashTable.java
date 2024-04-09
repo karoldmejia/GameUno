@@ -71,9 +71,8 @@ public class HashTable {
         ColorCard[] colors = ColorCard.values();
         TypeCard[] typeCards = TypeCard.values();
         for (int i = 0; i < 4; i++) {
-            put(colors[i], new Card(ind++, colors[i], 0, TypeCard.CLASSIC)); // Primera carta con valor 0 para cada color
             for (int j = 0; j < 2; j++) { // Repetir dos veces para el primer color
-                for (int k = 1; k < 10; k++) { // Añadir 8 cartas con valores del 1 al 8
+                for (int k = 0; k < 10; k++) { // Añadir 8 cartas con valores del 1 al 8
                     put(colors[i], new Card(ind++, colors[i], k, TypeCard.CLASSIC));
                 }
                 for (int p = 1; p < 4; p++) { // Para los otros tipos de cartas

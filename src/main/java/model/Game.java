@@ -45,7 +45,7 @@ public class Game {
                 addedCounter++;
             }
         }
-        while (addedCounter<99) {
+        while (addedCounter<103) {
             Card newCard = allCards.getRandomCard(colors[random.nextInt(5)]);
             if (newCard!=null){
                 addedCounter++;
